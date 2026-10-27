@@ -2,20 +2,45 @@ import './App.css';
 import {inventory, bestSellingTv} from "./constants/inventory.js";
 import {getStock, getTotalSold, getTotalBought} from './helpers/inventoryCalculator.js';
 import {formatProductName, formatProductPrice, formatProductSizes} from "./helpers/formatters.js";
-import checkIcon from "./assets/check.png";
-import minusIcon from "./assets/minus.png"
-
+import checkicon from "./assets/check.png";
+import minusicon from "./assets/minus.png";
+import TvCard from "./components/TvCard/TvCard.jsx";
+import {useState} from "react";
 
 function App() {
 
+    const [sortedTvList, setSortedTvList] = useState(inventory);
+
     function handleMostSold(){
-        console.log("De bestverkochte tv's komen eerst");
+        const sorted = [...inventory].sort((a, b) => {
+            return b.sold - a.sold;
+        });
+        setSortedTvList(sorted);
     }
     function handleCheapestFirst(){
-        console.log("De goedkoopste tv's eerst");
+        const sorted = [...inventory].sort((a, b) => {
+            return a.price - b.price;
+        });
+        setSortedTvList(sorted);
     }
     function handleSportTV(){
         console.log("De beste tv's voor sport eerst");
+        const sorted = [...inventory].sort((a, b) => {
+            return b.refreshRate - a.refreshRate;
+        });
+        setSortedTvList(sorted);
+    }
+    function handleAvailability(){
+        console.log("geklikt, hier alleen beschikbare tv's filteren");
+        const filterAvailableProduct = [...inventory].filter((tv) => {
+            if (tv.originalStock - tv.sold >= 1){
+                return true;
+            }
+            else{
+                return false;
+            }
+        });
+        setSortedTvList(filterAvailableProduct);
     }
 
     return (
@@ -51,19 +76,19 @@ function App() {
                             <span className="product-sizes">{formatProductSizes(bestSellingTv.availableSizes)}</span>
                             <ul>
                                 <li>
-                                    <img src={checkIcon} alt="aanwezig"/> wifi
+                                    <img src={checkicon} alt="aanwezig"/> wifi
                                 </li>
                                 <li>
-                                    <img src={minusIcon} alt="niet aanwezig"/> speech
+                                    <img src={minusicon} alt="niet aanwezig"/> speech
                                 </li>
                                 <li>
-                                    <img src={checkIcon} alt="aanwezig"/> hdr
+                                    <img src={checkicon} alt="aanwezig"/> hdr
                                 </li>
                                 <li>
-                                    <img src={checkIcon} alt="aanwezig"/> bluetooth
+                                    <img src={checkicon} alt="aanwezig"/> bluetooth
                                 </li>
                                 <li>
-                                    <img src={minusIcon} alt="niet aanwezig"/> ambiLight
+                                    <img src={minusicon} alt="niet aanwezig"/> ambiLight
                                 </li>
                             </ul>
                         </div>
@@ -75,7 +100,17 @@ function App() {
                         <button type="button" className="primary-button" onClick={() => {handleMostSold()}}>Meest verkocht eerst</button>
                         <button type="button" className="primary-button" onClick={() => {handleCheapestFirst()}}>Goedkoopste eerst</button>
                         <button type="button" className="primary-button" onClick={() => {handleSportTV()}}>Meest geschikt voor sport</button>
+                        <button type="button" className="primary-button" onClick={() => {handleAvailability()}}>Alleen beschikbaar</button>
                     </div>
+                    <div className="products">
+                    {sortedTvList.map((tv, key) => {
+                        key = "tv00"+key;
+                        return (
+                            <TvCard key={key} tv={tv} />
+                        )
+                    })}
+                    </div>
+
                 </section>
             </div>
         </>

@@ -78,4 +78,11 @@ section{
     display:flex;
     flex-direction: row;
     gap:16px;
+    margin-bottom:20px;
+}
+
+.products{
+    display:flex;
+    flex-direction: column;
+    gap:20px;
 }
