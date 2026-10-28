@@ -1,14 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;500&display=swap');
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --c-LightGreen: #EFFAF9;
+  --c-GreenText: #299D8F;
+  --c-LightBlue: #F2F6F9;
+  --c-BlueText: #468299;
+  --c-LightRed: #FFEEED;
+  --c-RedText: #E24D29;
+  --c-lightGray: #EDEDED;
+  --c-GreenVariation: #43C8B7;
 }
 
 body {
   font-family: 'Zen Kaku Gothic New', Avenir, Helvetica, Arial, sans-serif;
+  font-size: 17px;
   line-height: 1.5;
+}
+.inner-container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+h1, h2 {
+  margin-bottom: 1rem;
+}
+.primary-button {
+  padding: 16px;
+  font-size: 0.8rem;
+  border-radius: 30px;
+  border:none;
+  background: var(--c-GreenText);
+  color: #fff;
+  cursor: pointer;
+  transition: all .2s;
+}
+.primary-button:hover {
+  background: var(--c-GreenVariation);
 }
