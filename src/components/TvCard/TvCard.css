@@ -1,0 +1,65 @@
+.tv-card {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tv-card img {
+    max-width: 200px;
+}
+
+.tv-card .image-wrapper {
+    position: relative;
+}
+
+.tv-card .sold-out {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    transform: rotate(15deg);
+    width: 60px;
+    display: block;
+    z-index: 999;
+}
+
+.tv-card .tv-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.tv-card h3 {
+    font-size: 1.2rem;
+}
+
+.tv-card .tv-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.tv-card .tv-sizes,
+.tv-card .tv-options {
+    font-size: 0.8rem;
+}
+
+.tv-options {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.tv-options li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.tv-options li img {
+    width: 12px;
+}
