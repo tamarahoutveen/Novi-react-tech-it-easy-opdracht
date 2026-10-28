@@ -1,14 +1,18 @@
 import './TvCard.css';
 import minusIcon from '../../assets/minus.png';
 import checkIcon from '../../assets/check.png';
+import soldOutImg from '../../assets/out-of-stock.png';
 import PropTypes from 'prop-types';
-import formatProductName, { formatProductPrice, formatProductSizes } from "../../helpers/formatters.js";
+import formatProductName, {formatProductPrice, formatProductSizes} from "../../helpers/formatters.js";
 
-function TvCard({ tv }) {
+function TvCard({tv}) {
     return (
         <div className="tv-card">
             <div className="image-wrapper">
-                <img src={tv.sourceImg} alt={formatProductName(tv.brand, tv.type, tv.name)} />
+                <img src={tv.sourceImg} alt={formatProductName(tv.brand, tv.type, tv.name)} className="tv-image"/>
+                {tv.originalStock - tv.sold === 0 && (
+                    <img src={soldOutImg} alt="Uitverkocht" className="sold-out"/>
+                )}
             </div>
             <div className="tv-content">
                 <h3>{formatProductName(tv.brand, tv.type, tv.name)}</h3>
@@ -19,7 +23,7 @@ function TvCard({ tv }) {
                         return (
                             <li key={option.name}>
                                 <img src={option.applicable ? checkIcon : minusIcon}
-                                     alt={option.applicable ? "aanwezig" : "niet aanwezig"} />
+                                     alt={option.applicable ? "aanwezig" : "niet aanwezig"}/>
                                 {option.name}
                             </li>
                         );

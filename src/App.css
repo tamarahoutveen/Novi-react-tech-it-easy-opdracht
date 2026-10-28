@@ -77,7 +77,7 @@ section{
 .product-filters{
     display:flex;
     flex-direction: row;
-    gap:16px;
+    gap:8px;
     margin-bottom:20px;
 }
 
