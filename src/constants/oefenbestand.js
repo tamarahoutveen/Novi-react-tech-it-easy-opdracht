@@ -3,9 +3,7 @@ import {inventory} from './inventory.js';
 function showOutcomeInConsole() {
     //Deel 2, Opdracht 1a
 
-    const tvTypes = inventory.map((tv) => {
-        return tv.type;
-    });
+    const tvTypes = inventory.map((tv) => tv.type);
     console.log('Alle tv type namen in 1 array:' + tvTypes);
 
     //Deel 2, Opdracht 1b

@@ -8,7 +8,7 @@ function PrimaryButton({buttonLabel, onClick}) {
 }
 
 PrimaryButton.propTypes = {
-    buttonLabel: PropTypes.object.isRequired,
+    buttonLabel: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
 };
 

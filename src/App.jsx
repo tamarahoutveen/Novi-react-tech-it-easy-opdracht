@@ -40,6 +40,7 @@ function App() {
     function handleLargeTv() {
         console.log("De grootste tv's eerst");
         const sorted = [...inventory].sort((a, b) => {
+            //tip voor mezelf: gebruik spread operator. daarmee pak je de array uit en kun je wel math.max toepassen
             const largeTvA = Math.max(...a.availableSizes);
             const largeTvB = Math.max(...b.availableSizes);
             return largeTvB - largeTvA;
@@ -108,7 +109,7 @@ function App() {
                 <section>
                     <h2>Alle tv&rsquo;s</h2>
                     <div className="product-filters">
-                        <PrimaryButton buttonLabel={"Bestverkocht"} onClick={() => {
+                        <PrimaryButton buttonLabel={'Bestverkocht'} onClick={() => {
                             handleMostSold()
                         }}/>
                         <PrimaryButton buttonLabel={'Prijs laag > hoog'} onClick={() => {
@@ -125,8 +126,8 @@ function App() {
                         }}/>
                     </div>
                     <div className="products">
-                        {sortedTvList.map((tv, key) => {
-                            key = "tv00" + key;
+                        {sortedTvList.map((tv) => {
+                            const key = `${tv.brand}-${tv.type}`;
                             return (
                                 <TvCard key={key} tv={tv}/>
                             )

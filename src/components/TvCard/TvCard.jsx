@@ -22,6 +22,9 @@ function TvCard({tv}) {
                     {tv.options.map((option) => {
                         return (
                             <li key={option.name}>
+                                {/*
+                                Tip voor mezelf: schrijfwijze if else voor booleans kan verkort geschreven worden. Zie onderstaand
+                                */}
                                 <img src={option.applicable ? checkIcon : minusIcon}
                                      alt={option.applicable ? "aanwezig" : "niet aanwezig"}/>
                                 {option.name}
