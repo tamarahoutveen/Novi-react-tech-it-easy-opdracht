@@ -14,6 +14,6 @@ export function getTotalSold(inventory) {
     return total;
 }
 
-export function getStock(inventory, sold){
+export function getStock(inventory, sold) {
     return inventory - sold;
 }

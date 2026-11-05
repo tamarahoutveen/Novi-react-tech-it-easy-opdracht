@@ -327,5 +327,3 @@ export let inventory = [
         sold: 8,
     },
 ];
-
-
