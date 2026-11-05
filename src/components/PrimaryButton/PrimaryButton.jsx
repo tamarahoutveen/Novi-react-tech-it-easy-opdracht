@@ -11,6 +11,5 @@ PrimaryButton.propTypes = {
     buttonLabel: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
 };
-//mijn commit deed het niet, dus even kleine changes maken.
 
 export default PrimaryButton;

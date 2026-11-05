@@ -327,4 +327,3 @@ export let inventory = [
         sold: 8,
     },
 ];
-//omdat github een storing had met het committen, even een paar comments onderaan zodat mijn code goed erin komt.
