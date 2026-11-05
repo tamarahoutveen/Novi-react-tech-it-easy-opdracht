@@ -141,3 +141,4 @@ function App() {
 }
 
 export default App
+//omdat github een storing had met het committen, even een paar comments onderaan zodat mijn code goed erin komt.

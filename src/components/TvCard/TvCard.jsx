@@ -42,3 +42,4 @@ TvCard.propTypes = {
 };
 
 export default TvCard;
+//omdat github een storing had met het committen, even een paar comments onderaan zodat mijn code goed erin komt.
